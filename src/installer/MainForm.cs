@@ -161,7 +161,8 @@ namespace SnowRunnerGtao
             public Game(string pak) { Pak = pak; }
             public override string ToString()
             {
-                string tail = @"preloadpaksclientshader.pak";
+                string tail = Path.Combine("preload", "paks", "client", "shader.pak");
+                tail = Path.DirectorySeparatorChar + tail;
                 return Pak.EndsWith(tail, StringComparison.OrdinalIgnoreCase) ? Pak.Substring(0, Pak.Length - tail.Length) : Pak;
             }
         }

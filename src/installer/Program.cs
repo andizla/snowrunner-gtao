@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 // Entry point. Double click opens the window. The command line form exists for the test script:
 //   SnowRunnerGTAO.exe --cli status|install|remove <shader.pak> [--state <folder>] [--log <file>]
+//   SnowRunnerGTAO.exe --cli find x --log <file> lists every shader.pak the game search finds
 //   exit code 0 = done, 1 = refused with a reason (nothing changed), 2 = unexpected error
 //   the log gets one line: state=..., result=... or error=...
 //   SnowRunnerGTAO.exe --cli shot <shader.pak> --png <file> draws the window into a picture (layout check, no screen needed)
@@ -42,6 +43,7 @@ namespace SnowRunnerGtao
                 if (args[1] == "status") line = "state=" + Installer.Check(args[2]).State;
                 else if (args[1] == "install") line = "result=" + Installer.Install(args[2], quiet);
                 else if (args[1] == "remove") line = "result=" + Installer.Remove(args[2], quiet);
+                else if (args[1] == "find") line = "found=" + string.Join("|", GameFinder.FindPaks().ToArray());
                 else if (args[1] == "shot" && png != null)
                 {
                     Application.EnableVisualStyles();

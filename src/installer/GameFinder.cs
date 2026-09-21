@@ -42,9 +42,10 @@ namespace SnowRunnerGtao
 
         static void Steam(List<string> roots)
         {
-            string steam = RegistryString(Registry.CurrentUser, @"Software\Valve\Steam", "SteamPath")
-                ?? RegistryString(Registry.LocalMachine, @"SOFTWARE\WOW6432Node\Valve\Steam", "InstallPath")
-                ?? RegistryString(Registry.LocalMachine, @"SOFTWARE\Valve\Steam", "InstallPath");
+            // the machine wide value spells the folder the way it is on disk, the per user one is all lower case
+            string steam = RegistryString(Registry.LocalMachine, @"SOFTWARE\WOW6432Node\Valve\Steam", "InstallPath")
+                ?? RegistryString(Registry.LocalMachine, @"SOFTWARE\Valve\Steam", "InstallPath")
+                ?? RegistryString(Registry.CurrentUser, @"Software\Valve\Steam", "SteamPath");
             if (steam == null) return;
             steam = steam.Replace('/', '\\');
             List<string> libraries = new List<string>();
