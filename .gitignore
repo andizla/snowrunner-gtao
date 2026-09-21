@@ -1,0 +1,9 @@
+# build outputs; the release zip goes to GitHub Releases
+out/
+*.exe
+*.cso
+
+# release drafts, page texts and working notes: local only
+release/
+HANDOFF.md
+.claude/
