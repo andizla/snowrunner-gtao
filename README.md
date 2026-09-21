@@ -1,10 +1,12 @@
 # SnowRunner GTAO
 
-SnowRunner's ambient occlusion is a depth-only SSAO from the late 2000s: 8 samples on a fixed kernel, with a radius that covers the same share of the screen at any distance. It gives soft grey halos instead of contact shadows. This mod replaces that shader with ground truth ambient occlusion (GTAO): it looks along several directions on screen, finds the horizon the depth buffer leaves open and integrates the visible sky. The radius is set in metres, so trucks, rocks, logs and tree trunks sit on the ground instead of floating over it.
+SnowRunner's ambient occlusion is a depth-only SSAO from the late 2000s: 8 samples on a fixed kernel, with a radius that covers the same share of the screen at any distance. It draws a dark rim along every edge and lays a grey film over flat ground, whether anything is close or not. This mod replaces that shader with ground truth ambient occlusion (GTAO): it looks along several directions on screen, finds the horizon the depth buffer leaves open and darkens only by the sky that is really blocked. Edges and open ground come out clean, and the shading that remains sits where geometry closes in: between twin tyres, inside a frame, where a wheel meets the ground. The radius is set in metres, so the effect keeps its size whether a truck is next to the camera or across the valley.
 
 It works without ReShade or any other loader. The shader goes into the game's own shader cache inside `shader.pak`, and the game runs it as its own.
 
-<!-- screenshots: before and after, same spot, same time of day -->
+![Stock on the left, SnowRunner GTAO on the right: the dark rims around the grille, the tyre treads and the wheel arch are gone](docs/garage_closeup.jpg)
+
+![The whole frame, stock on the left, SnowRunner GTAO on the right](docs/garage_compare.jpg)
 
 ## Install
 
