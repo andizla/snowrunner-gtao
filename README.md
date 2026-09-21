@@ -6,9 +6,9 @@ Ambient occlusion is the soft shadow where things meet: under a truck, between t
 
 It works without ReShade or any other loader. The shader goes into the game's own shader cache inside `shader.pak`, and the game runs it as its own.
 
-![Stock on the left, SnowRunner GTAO on the right: the dark rims around the grille, the tyre treads and the wheel arch are gone](docs/garage_closeup.jpg)
+![Stock on the left, SnowRunner GTAO on the right: the dark outlines around the roll cage and along the roof are gone](docs/landrover_cage_compare.jpg)
 
-![The whole frame, stock on the left, SnowRunner GTAO on the right](docs/garage_compare.jpg)
+![A daylight scene, stock on the left, SnowRunner GTAO on the right](docs/title_compare.jpg)
 
 ## Install
 
